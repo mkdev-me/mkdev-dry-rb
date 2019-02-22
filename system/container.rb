@@ -9,8 +9,8 @@ class Notifier < Dry::System::Container
   use :env, inferrer: -> { ENV.fetch('RACK_ENV', :development).to_sym }
 
   configure do |config|
-    # config.root = /root/app/dir
     config.auto_register = %w(lib)
+    config.default_namespace = 'notifier'
   end
 
   load_paths!('lib', 'system')
